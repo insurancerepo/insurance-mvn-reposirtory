@@ -1,0 +1,9 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Jan 27 21:46:17 CST 2022
+https\://repo.maven.apache.org/maven2/.lastUpdated=1643341577555
+https\://repo.spring.io/milestone/.error=
+https\://repo.spring.io/milestone/.lastUpdated=1643341571954
+https\://repo.spring.io/snapshot/.error=
+@default-rabbit-milestone-https\://dl.bintray.com/rabbitmq/maven-milestones/.lastUpdated=1643341576961
+https\://repo.spring.io/snapshot/.lastUpdated=1643341574608
+https\://dl.bintray.com/rabbitmq/maven-milestones/.error=Could not transfer artifact org.ow2.asm\:asm\:pom\:5.0.4 from/to rabbit-milestone (https\://dl.bintray.com/rabbitmq/maven-milestones)\: Transfer failed for https\://dl.bintray.com/rabbitmq/maven-milestones/org/ow2/asm/asm/5.0.4/asm-5.0.4.pom 502 Bad Gateway

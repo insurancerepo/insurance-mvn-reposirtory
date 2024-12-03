@@ -1,0 +1,9 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Jan 27 21:45:45 CST 2022
+https\://repo.maven.apache.org/maven2/.lastUpdated=1643341545847
+https\://repo.spring.io/milestone/.error=
+https\://repo.spring.io/milestone/.lastUpdated=1643341537390
+https\://repo.spring.io/snapshot/.error=
+@default-rabbit-milestone-https\://dl.bintray.com/rabbitmq/maven-milestones/.lastUpdated=1643341544650
+https\://repo.spring.io/snapshot/.lastUpdated=1643341539724
+https\://dl.bintray.com/rabbitmq/maven-milestones/.error=Could not transfer artifact com.jayway.jsonpath\:json-path\:pom\:2.4.0 from/to rabbit-milestone (https\://dl.bintray.com/rabbitmq/maven-milestones)\: Transfer failed for https\://dl.bintray.com/rabbitmq/maven-milestones/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.pom 502 Bad Gateway

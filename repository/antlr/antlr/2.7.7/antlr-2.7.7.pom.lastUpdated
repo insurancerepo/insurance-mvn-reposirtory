@@ -1,0 +1,9 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Jan 27 21:44:23 CST 2022
+https\://repo.maven.apache.org/maven2/.lastUpdated=1643341463194
+https\://repo.spring.io/milestone/.error=
+https\://repo.spring.io/milestone/.lastUpdated=1643341461441
+https\://repo.spring.io/snapshot/.error=
+@default-rabbit-milestone-https\://dl.bintray.com/rabbitmq/maven-milestones/.lastUpdated=1643341462912
+https\://repo.spring.io/snapshot/.lastUpdated=1643341462027
+https\://dl.bintray.com/rabbitmq/maven-milestones/.error=Could not transfer artifact antlr\:antlr\:pom\:2.7.7 from/to rabbit-milestone (https\://dl.bintray.com/rabbitmq/maven-milestones)\: Transfer failed for https\://dl.bintray.com/rabbitmq/maven-milestones/antlr/antlr/2.7.7/antlr-2.7.7.pom 502 Bad Gateway

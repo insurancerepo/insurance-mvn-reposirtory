@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  Copyright (c) [2017-2021] Payara Foundation and/or its affiliates. All rights reserved.
+
+  The contents of this file are subject to the terms of either the GNU
+  General Public License Version 2 only ("GPL") or the Common Development
+  and Distribution License("CDDL") (collectively, the "License").  You
+  may not use this file except in compliance with the License.  You can
+  obtain a copy of the License at
+  https://github.com/payara/Payara/blob/master/LICENSE.txt
+  See the License for the specific
+  language governing permissions and limitations under the License.
+
+  When distributing the software, include this License Header Notice in each
+  file and include the License file at glassfish/legal/LICENSE.txt.
+
+  GPL Classpath Exception:
+  The Payara Foundation designates this particular file as subject to the "Classpath"
+  exception as provided by the Payara Foundation in the GPL Version 2 section of the License
+  file that accompanied this code.
+
+  Modifications:
+  If applicable, add the following below the License Header, with the fields
+  enclosed by brackets [] replaced by your own identifying information:
+  "Portions Copyright [year] [name of copyright owner]"
+
+  Contributor(s):
+  If you wish your version of this file to be governed by only the CDDL or
+  only the GPL Version 2, indicate your decision by adding "[Contributor]
+  elects to include this software in this distribution under the [CDDL or GPL
+  Version 2] license."  If you don't indicate a single choice of license, a
+  recipient has the option to distribute your version of this file under
+  either the CDDL, the GPL Version 2 or to extend the choice of license to
+  its licensees as provided above.  However, if you add GPL Version 2 code
+  and therefore, elected the GPL Version 2 license, then the option applies
+  only if the new code is made subject to such option by the copyright
+  holder.
+
+
+  This file incorporates work covered by the following copyright and
+  permission notice:
+
+  JBoss, Home of Professional Open Source
+  Copyright 2011, Red Hat Middleware LLC, and individual contributors
+  by the @authors tag. See the copyright.txt in the distribution for a
+  full listing of individual contributors.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+-->
+<!-- Portions Copyright [2023, 2023] [OmniFish and/or its affiliates] -->
+<!-- Portions Copyright [2021, 2022] [OmniFaces and/or its affiliates] -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.omnifaces.arquillian</groupId>
+    <artifactId>parent-glassfish-containers</artifactId>
+    <version>1.4</version>
+    <packaging>pom</packaging>
+
+    <name>Arquillian Container Parent GlassFish</name>
+
+    <description>
+        GlassFish Container integrations for the Arquillian Project.
+        Based on the JBoss GlassFish container integrations.
+        Based on the Payara Payara container integrations.
+    </description>
+
+    <url>https://github.com/omnifaces/</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
+        <version.jersey>3.0.3</version.jersey>
+        <version.arquillian>1.7.0.Alpha14</version.arquillian>
+        <version.jakartaee>9</version.jakartaee>
+        <version.jakartaee.api>9.1.0</version.jakartaee.api>
+        
+        <docs.phase>deploy</docs.phase>
+
+        <version.glassfish>6.2.5</version.glassfish>
+        <glassfish.home>glassfish6</glassfish.home>
+
+        <skipITs>false</skipITs>
+    </properties>
+
+    <developers>
+        <developer>
+            <name>OmniFish Team</name>
+            <organization>OmniFish</organization>
+            <organizationUrl>https://omnifish.ee</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:OmniFish-EE/arquillian-container-glassfish.git</connection>
+        <url>scm:git:git@github.com:OmniFish-EE/arquillian-container-glassfish.git</url>
+        <developerConnection>scm:git:git@github.com:OmniFish-EE/arquillian-container-glassfish.git</developerConnection>
+        <tag>${project.version}</tag>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>CDDL + GPLv2 with classpath exception</name>
+            <url>http://glassfish.java.net/nonav/public/CDDL+GPL.html</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
+    <modules>
+        <module>glassfish-common</module>
+        <module>glassfish-managed</module>
+        <module>glassfish-remote</module>
+        <module>glassfish-embedded</module>
+        <module>glassfish-client-ee9</module>
+        <module>glassfish-client-ee10</module>
+        <module>environment-setup</module>
+        <module>integration-tests</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.glassfish.jersey.core</groupId>
+                <artifactId>jersey-client</artifactId>
+                <version>${version.jersey}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.inject</groupId>
+                <artifactId>jersey-hk2</artifactId>
+                <version>${version.jersey}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.ext</groupId>
+                <artifactId>jersey-proxy-client</artifactId>
+                <version>${version.jersey}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.ext</groupId>
+                <artifactId>jersey-microprofile-rest-client</artifactId>
+                <version>${version.jersey}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.core</groupId>
+                <artifactId>jersey-common</artifactId>
+                <version>${version.jersey}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.core</groupId>
+                <artifactId>jersey-server</artifactId>
+                <version>${version.jersey}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.media</groupId>
+                <artifactId>jersey-media-sse</artifactId>
+                <version>${version.jersey}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.media</groupId>
+                <artifactId>jersey-media-multipart</artifactId>
+                <version>${version.jersey}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.glassfish.jersey.media</groupId>
+                <artifactId>jersey-media-jaxb</artifactId>
+                <version>${version.jersey}</version>
+            </dependency>
+
+            
+            <dependency>
+                <groupId>org.glassfish.jersey.media</groupId>
+                <artifactId>jersey-media-json-processing</artifactId>
+                <version>${version.jersey}</version>
+            </dependency>
+
+            <!-- Note: indirectly depends on javax.* -->
+            <dependency>
+                <groupId>org.glassfish.jersey.media</groupId>
+                <artifactId>jersey-media-json-jackson</artifactId>
+                <version>${version.jersey}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-api</artifactId>
+                <version>${version.jakartaee.api}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>${version.arquillian}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-build</artifactId>
+                <version>${version.arquillian}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>enforce-java</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.6</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <release>11</release>
+                    <compilerArgument>-Xlint:unchecked</compilerArgument>
+                </configuration>
+            </plugin>
+        
+            <!-- Configure the jar with the binaries. -->
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <forceCreation>true</forceCreation>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <URL>${project.url}</URL>
+                            <Extension-Name>${project.artifactId}</Extension-Name>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Configure the jar with the sources. -->
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>${docs.phase}</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Configure the jar with the javadoc. -->
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <notimestamp>true</notimestamp>
+                    <splitindex>true</splitindex>
+                    <doctitle>Arquillian connector</doctitle>
+                    <links>
+                        <link>https://jakarta.ee/specifications/platform/${version.jakartaee}/apidocs/</link>
+                    </links>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <phase>${docs.phase}</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <!-- Configure snapshot deployment to Sonatype. -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.13</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+        </plugins>
+        
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>3.4.1</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                            <configuration>
+                                <createDependencyReducedPom>false</createDependencyReducedPom>
+                                <artifactSet>
+                                    <includes>
+                                        <!-- Jakarta EE -->
+                                        <include>jakarta.validation:jakarta.validation-api:*</include>
+                                        <include>jakarta.annotation:jakarta.annotation-api:*</include>
+                                        <include>jakarta.ws.rs:jakarta.ws.rs-api:*</include>
+                                        <include>jakarta.inject:*</include>
+                                        <include>jakarta.json:*</include>
+                                        
+                                        <include>jakarta.xml.bind:*</include>
+                                        <include>com.sun.activation:*</include>
+                                        
+                                        <include>javax.xml.bind:*</include>
+                                        <include>javax.activation:*</include>
+                                    
+                                        <!-- GlassFish -->
+                                        <include>org.glassfish:*</include>
+                                        <include>org.glassfish.hk2</include>
+                                        <include>org.glassfish.hk2.external:*</include>
+                                        <include>org.glassfish.jersey.core:*</include>
+                                        <include>org.glassfish.jersey.inject:*</include>
+                                        <include>org.glassfish.jersey.media:*</include>
+                                        <include>org.glassfish.jersey.ext:*</include>
+                                        <include>org.glassfish:jakarta.json:*</include>
+                                        
+                                        <!-- Other -->
+                                        <include>org.javassist:*</include>
+                                        <include>com.fasterxml.jackson.core:*</include>
+                                        <include>com.fasterxml.jackson.module:*</include>
+                                        <include>org.jvnet:*</include>
+                                        <include>org.jvnet.mimepull:*</include>
+                                    </includes>
+                                </artifactSet>
+                                
+                                <transformers>
+                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
+                                </transformers>
+
+                                <relocations>
+                                    <!-- Jakarta EE -->
+                                    <relocation>
+                                        <pattern>jakarta.validation</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.validation</shadedPattern>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>jakarta.annotation</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.annotation</shadedPattern>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>jakarta.ws</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.ws</shadedPattern>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>jakarta.inject</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.inject</shadedPattern>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>jakarta.json</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.jakarta.json</shadedPattern>
+                                    </relocation>
+                                    
+                                    <relocation>
+                                        <pattern>jakarta.xml.bind</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.jakarta.xml.bind</shadedPattern>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>jakarta.activation</pattern> <!-- 1st package in com.sun.activation:jakarta.activation -->
+                                        <pattern>com.sun.activation.registries</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.jakarta.activation</shadedPattern>
+                                    </relocation>
+                                    <relocation> <!-- 2nd package in com.sun.activation:jakarta.activation -->
+                                        <pattern>com.sun.activation.registries</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.com.sun.activation.registries</shadedPattern>
+                                    </relocation>
+                                    
+                                    
+                                    
+                                    <relocation>
+                                        <pattern>javax.xml.bind</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.javax.xml.bind</shadedPattern>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>javax.activation</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.javax.activation</shadedPattern>
+                                    </relocation>
+                                
+                                    <!-- GlassFish -->
+                                    <relocation>
+                                        <pattern>org.glassfish.hk2</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.hk2</shadedPattern>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>org.glassfish.jersey</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.jersey</shadedPattern>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>org.glassfish.json</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.json</shadedPattern>
+                                    </relocation>
+
+                                    <!-- Other -->
+                                    <relocation>
+                                        <pattern>javassist</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.javassist</shadedPattern>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>com.fasterxml</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.faster</shadedPattern>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>jersey.repackaged</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.jersey.repackaged</shadedPattern>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>com.sun.research</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.research</shadedPattern>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>org.jvnet</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.jvnet</shadedPattern>
+                                    </relocation>
+                                    <relocation>
+                                        <pattern>org.aopalliance</pattern>
+                                        <shadedPattern>org.omnifaces.arquillian.aopalliance</shadedPattern>
+                                    </relocation>
+                                </relocations>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- Release deploy: mvn clean deploy -P release -->
+    <profiles>
+        <profile>
+            <id>release</id>
+            <properties>
+                <docs.phase>package</docs.phase>
+            </properties>
+            <build>
+                <plugins>
+                    <!-- Signing with GPG is a requirement for a release deployment to Maven central. -->
+                    <plugin>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.0.1</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        
+        <profile>
+            <id>skipTests</id>
+            <activation>
+                <property>
+                    <name>skipTests</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+                <skipITs>true</skipITs>
+            </properties>
+        </profile>
+    </profiles>
+</project>

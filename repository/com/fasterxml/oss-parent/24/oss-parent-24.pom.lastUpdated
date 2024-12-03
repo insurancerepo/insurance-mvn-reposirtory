@@ -1,0 +1,9 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Jan 27 21:44:03 CST 2022
+https\://repo.maven.apache.org/maven2/.lastUpdated=1643341443580
+https\://repo.spring.io/milestone/.error=
+https\://repo.spring.io/milestone/.lastUpdated=1643341442484
+https\://repo.spring.io/snapshot/.error=
+@default-rabbit-milestone-https\://dl.bintray.com/rabbitmq/maven-milestones/.lastUpdated=1643341443386
+https\://repo.spring.io/snapshot/.lastUpdated=1643341442804
+https\://dl.bintray.com/rabbitmq/maven-milestones/.error=Could not transfer artifact com.fasterxml\:oss-parent\:pom\:24 from/to rabbit-milestone (https\://dl.bintray.com/rabbitmq/maven-milestones)\: Transfer failed for https\://dl.bintray.com/rabbitmq/maven-milestones/com/fasterxml/oss-parent/24/oss-parent-24.pom 502 Bad Gateway

@@ -1,0 +1,9 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Jan 27 21:47:03 CST 2022
+https\://repo.maven.apache.org/maven2/.lastUpdated=1643341623031
+https\://repo.spring.io/milestone/.error=
+https\://repo.spring.io/milestone/.lastUpdated=1643341616388
+https\://repo.spring.io/snapshot/.error=
+@default-rabbit-milestone-https\://dl.bintray.com/rabbitmq/maven-milestones/.lastUpdated=1643341621391
+https\://repo.spring.io/snapshot/.lastUpdated=1643341618847
+https\://dl.bintray.com/rabbitmq/maven-milestones/.error=Could not transfer artifact net.bytebuddy\:byte-buddy\:pom\:1.7.10 from/to rabbit-milestone (https\://dl.bintray.com/rabbitmq/maven-milestones)\: Transfer failed for https\://dl.bintray.com/rabbitmq/maven-milestones/net/bytebuddy/byte-buddy/1.7.10/byte-buddy-1.7.10.pom 502 Bad Gateway

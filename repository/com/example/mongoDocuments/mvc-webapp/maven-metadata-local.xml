@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.example.mongoDocuments</groupId>
+  <artifactId>mvc-webapp</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20241128231837</lastUpdated>
+  </versioning>
+</metadata>
