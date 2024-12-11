@@ -1,4 +1,5 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Fri Jan 21 18:11:04 CST 2022
+#Thu Dec 05 15:07:12 CST 2024
 primefaces-10.0.0.pom>central=
 primefaces-10.0.0.jar>central=
+primefaces-10.0.0-jakarta.jar>central=
