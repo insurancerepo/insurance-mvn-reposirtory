@@ -1,5 +1,7 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Thu Mar 03 18:15:24 CST 2022
-https\://repo.maven.apache.org/maven2/.lastUpdated=1646352923504
+#Wed Dec 18 14:59:12 CST 2024
+https\://repo.maven.apache.org/maven2/.lastUpdated=1734552686778
+http\://0.0.0.0/.error=Could not transfer artifact com.lowagie\:itext\:pom\:2.1.7.js2 from/to maven-default-http-blocker (http\://0.0.0.0/)\: Blocked mirror for repositories\: [jasperreports (http\://jasperreports.sourceforge.net/maven2, default, releases+snapshots)]
 http\://jasperreports.sourceforge.net/maven2/.lastUpdated=1646352924350
+@default-maven-default-http-blocker-http\://0.0.0.0/.lastUpdated=1734555552806
 https\://repo.maven.apache.org/maven2/.error=
